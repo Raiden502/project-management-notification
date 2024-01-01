@@ -33,7 +33,7 @@ const DeadLineTemplate = (action) => {
                                                     <h1 style="margin: 1rem 0">Time Line Update</h1>
                                                     <p style="padding-bottom: 16px"><strong style="font-size: 130%">${projectname}</strong>
                                                     </p>
-                                                    <p style="padding-bottom: 16px">${user} Your dead line is nearby</p>
+                                                    <p style="padding-bottom: 16px">${user} your dead line is nearby</p>
                                                     <p style="padding-bottom: 16px">${task} still pending need to be completed by ${time}</p>
                                                     <p style="padding-bottom: 16px">Current status: ${taskstatus}</p>
                                                     <p style="padding-bottom: 16px">Thanks,<br>The Priya team</p>
