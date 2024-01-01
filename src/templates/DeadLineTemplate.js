@@ -1,6 +1,7 @@
-const AuthTemplate = (otp) => {
+const DeadLineTemplate = (action) => {
+    const {projectname, user, task, time, taskstatus  } = action
     return {
-        subject: 'Project Management Verification Code',
+        subject: 'Project Management Dead line',
         html: `
             <div>
             <table 
@@ -29,13 +30,12 @@ const AuthTemplate = (otp) => {
                                             </div>
                                             <div style="padding: 20px; background-color: rgb(255, 255, 255);">
                                                 <div style="color: rgb(43, 21, 203); text-align: left;">
-                                                    <h1 style="margin: 1rem 0">Verification code</h1>
-                                                    <p style="padding-bottom: 16px">Please use the verification code below to sign
-                                                        in.</p>
-                                                    <p style="padding-bottom: 16px"><strong style="font-size: 130%">${otp}</strong>
+                                                    <h1 style="margin: 1rem 0">Time Line Update</h1>
+                                                    <p style="padding-bottom: 16px"><strong style="font-size: 130%">${projectname}</strong>
                                                     </p>
-                                                    <p style="padding-bottom: 16px">If you didn’t request this, you can ignore this
-                                                        email.</p>
+                                                    <p style="padding-bottom: 16px">${user} Your dead line is nearby</p>
+                                                    <p style="padding-bottom: 16px">${task} still pending need to be completed by ${time}</p>
+                                                    <p style="padding-bottom: 16px">Current status: ${taskstatus}</p>
                                                     <p style="padding-bottom: 16px">Thanks,<br>The Priya team</p>
                                                 </div>
                                             </div>
@@ -55,10 +55,6 @@ const AuthTemplate = (otp) => {
     }
 }
 
-const DeadLineTemplate = (action) => {
-
-}
-
 export {
-    AuthTemplate, DeadLineTemplate
+    DeadLineTemplate
 }
