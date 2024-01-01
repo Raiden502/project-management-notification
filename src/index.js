@@ -2,6 +2,7 @@ import express from 'express'
 import schedule from 'node-schedule'
 import Queue from 'bull';
 import nodemailer from 'nodemailer';
+import { AuthTemplate } from './template.js';
 
 const app = express()
 app.use(express.json());
@@ -48,8 +49,7 @@ function sendMail(email) {
         let mailOptions = {
             from: process.env.EMAIL_USER,
             to: email,
-            subject: 'Notification Generator',
-            text: "This email is from custom notification scheduler.",
+            ...AuthTemplate('34444')
         };
         let mailConfig = {
             service: 'gmail',
