@@ -5,6 +5,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", router);
-app.listen(5000, () => {
-	console.log("server running on port 5000");
+
+
+const { PORT, HOST } = process.env;
+
+app.listen(PORT, HOST, () => {
+	console.log("Server listening on port", PORT);
 });

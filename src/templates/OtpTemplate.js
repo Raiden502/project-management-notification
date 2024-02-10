@@ -1,8 +1,8 @@
 const AuthTemplate = (action) => {
-    const {otp} = action
-    return {
-        subject: 'Project Management Verification Code',
-        html: `
+	const { otp } = action;
+	return {
+		subject: "Project Management Verification Code",
+		html: `
             <div>
             <table 
                 role="presentation" 
@@ -52,11 +52,8 @@ const AuthTemplate = (action) => {
                 </tbody>
             </table>
             </div>    
-        `
-    }
-}
+        `,
+	};
+};
 
-
-export {
-    AuthTemplate
-}
+export { AuthTemplate };

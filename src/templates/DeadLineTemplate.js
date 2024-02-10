@@ -1,8 +1,8 @@
 const DeadLineTemplate = (action) => {
-    const {projectname, user, task, time, taskstatus  } = action
-    return {
-        subject: 'Project Management Dead line',
-        html: `
+	const { projectname, user, task, time, taskstatus } = action;
+	return {
+		subject: "Project Management Dead line",
+		html: `
             <div>
             <table 
                 role="presentation" 
@@ -51,10 +51,8 @@ const DeadLineTemplate = (action) => {
                 </tbody>
             </table>
             </div>    
-        `
-    }
-}
+        `,
+	};
+};
 
-export {
-    DeadLineTemplate
-}
+export { DeadLineTemplate };

@@ -1,30 +1,30 @@
 {
-  "name": "pms-notifications",
-  "version": "1.0.0",
-  "description": "provide simple notifications using smtp protocol",
-  "main": "./src/index.js",
-  "type": "module",
-  "scripts": {
-    "start": "node -r dotenv/config ./src/index.js",
-    "dev": "nodemon -r dotenv/config ./src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Raiden502/project-management-notification.git"
-  },
-  "author": "Aravind Turubati",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Raiden502/project-management-notification/issues"
-  },
-  "homepage": "https://github.com/Raiden502/project-management-notification#readme",
-  "dependencies": {
-    "bull": "^4.12.0",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "node-schedule": "^2.1.1",
-    "nodemailer": "^6.9.8",
-    "nodemon": "^3.0.2"
-  }
+	"name": "pms-notifications",
+	"version": "1.0.0",
+	"description": "provide simple notifications using smtp protocol",
+	"main": "./src/index.js",
+	"type": "module",
+	"scripts": {
+		"start": "node -r dotenv/config ./src/index.js",
+		"dev": "nodemon -r dotenv/config ./src/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Raiden502/project-management-notification.git"
+	},
+	"author": "Aravind Turubati",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Raiden502/project-management-notification/issues"
+	},
+	"homepage": "https://github.com/Raiden502/project-management-notification#readme",
+	"dependencies": {
+		"bull": "^4.12.0",
+		"dotenv": "^16.3.1",
+		"express": "^4.18.2",
+		"node-schedule": "^2.1.1",
+		"nodemailer": "^6.9.8",
+		"nodemon": "^3.0.2"
+	}
 }

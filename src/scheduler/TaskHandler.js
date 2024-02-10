@@ -9,8 +9,7 @@ const taskJobScheduler = async (req, res) => {
 			.status(400)
 			.send({ status: false, msg: "parameter missing." });
 	}
-    const options = {	
-	};
+	const options = {};
 	await sendOtpMailQueue.add(data, options);
 	res.status(200).send({
 		status: true,
@@ -20,7 +19,7 @@ const taskJobScheduler = async (req, res) => {
 
 sendOtpMailQueue.process(async (job) => {
 	try {
-		const { otp, email} = job.data;
+		const { otp, email } = job.data;
 		let mailOptions = {
 			from: process.env.EMAIL_USER,
 			to: email,

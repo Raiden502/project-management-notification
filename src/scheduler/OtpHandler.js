@@ -11,7 +11,7 @@ const optJobScheduler = async (req, res) => {
 			.send({ status: false, msg: "parameter missing." });
 	}
 	const options = {
-		lifo: true
+		lifo: true,
 	};
 	await sendOtpMailQueue.add(data, options);
 	res.status(200).send({
@@ -22,7 +22,7 @@ const optJobScheduler = async (req, res) => {
 
 sendOtpMailQueue.process(async (job) => {
 	try {
-		const { otp, email} = job.data;
+		const { otp, email } = job.data;
 		let mailOptions = {
 			from: process.env.EMAIL_USER,
 			to: email,

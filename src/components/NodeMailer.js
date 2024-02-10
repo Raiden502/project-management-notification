@@ -1,32 +1,44 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
+
+const {
+	SERVICE,
+	SERVICE_PORT,
+	SECURE,
+	LOGGER,
+	DEBUG,
+	EMAIL_USER,
+	EMAIL_PASSWORD,
+	SECURE_CONNECTION,
+	REJECT_UNAUTHORIZED,
+} = process.env;
 
 function sendMail(mailOptions) {
-    return new Promise((resolve, reject) => {
-        let mailConfig = {
-            service: "gmail",
-            port: 465,
-            secure: true,
-            logger: false,
-            debug: false,
-            secureConnection: false,
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASSWORD,
-            },
-            tls: {
-                rejectUnAuthorized: true,
-            },
-        };
-        nodemailer
-            .createTransport(mailConfig)
-            .sendMail(mailOptions, (err, info) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(info);
-                }
-            });
-    });
+	return new Promise((resolve, reject) => {
+		let mailConfig = {
+			service: SERVICE,
+			port: SERVICE_PORT,
+			secure: SECURE,
+			logger: LOGGER,
+			debug: DEBUG,
+			secureConnection: SECURE_CONNECTION,
+			auth: {
+				user: EMAIL_USER,
+				pass: EMAIL_PASSWORD,
+			},
+			tls: {
+				rejectUnAuthorized: REJECT_UNAUTHORIZED,
+			},
+		};
+		nodemailer
+			.createTransport(mailConfig)
+			.sendMail(mailOptions, (err, info) => {
+				if (err) {
+					reject(err);
+				} else {
+					resolve(info);
+				}
+			});
+	});
 }
 
-export {sendMail}
+export { sendMail };
