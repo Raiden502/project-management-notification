@@ -1,5 +1,5 @@
 const NewTask = (action) => {
-	const { projectname, user, task, time, taskstatus , reporter} = action;
+	const { projectname, user, task, time, taskstatus, priority, reporter} = action;
 	return {
 		subject: "TSMC New Task",
 		html: `
@@ -35,7 +35,8 @@ const NewTask = (action) => {
                                                     </p>
                                                     <p style="padding-bottom: 16px">${reporter} is assigned you a new task</p>
                                                     <p style="padding-bottom: 16px">${task} need to be completed by ${time}</p>
-                                                    <p style="padding-bottom: 16px">Current status: ${taskstatus}</p>
+                                                    <p style="padding-bottom: 16px">Current stages: ${taskstatus}</p>
+                                                    <p style="padding-bottom: 16px">Current status: ${priority}</p>
                                                     <p style="padding-bottom: 16px">Thanks,<br>The Priya team</p>
                                                 </div>
                                             </div>
