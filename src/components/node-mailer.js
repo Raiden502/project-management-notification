@@ -17,16 +17,16 @@ function sendMail(mailOptions) {
 		let mailConfig = {
 			service: SERVICE,
 			port: SERVICE_PORT,
-			secure: SECURE,
-			logger: LOGGER,
-			debug: DEBUG,
-			secureConnection: SECURE_CONNECTION,
+			secure: true,
+			logger: false,
+			debug: false,
+			secureConnection: false,
 			auth: {
 				user: EMAIL_USER,
 				pass: EMAIL_PASSWORD,
 			},
 			tls: {
-				rejectUnAuthorized: REJECT_UNAUTHORIZED,
+				rejectUnAuthorized: true,
 			},
 		};
 		nodemailer

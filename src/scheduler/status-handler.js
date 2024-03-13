@@ -1,6 +1,6 @@
-import { taskMailStatusQueue } from "../components/Scheduler.js";
-import { sendMail } from "../components/NodeMailer.js";
-import { DeadLineTemplate } from "../templates/DeadLineTemplate.js";
+import { taskMailStatusQueue } from "../components/scheduler.js";
+import { sendMail } from "../components/node-mailer.js";
+import { DeadLineTemplate } from "../templates/deadline.js";
 
 const statusJobScheduler = async (req, res) => {
 	const { notificationInfo, delay, attempts } = req.body;

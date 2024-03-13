@@ -1,7 +1,7 @@
-const AuthTemplate = (action) => {
-	const { otp } = action;
+const PasswordReset = (action) => {
+	const { user_name, user_id } = action;
 	return {
-		subject: "Project Management Verification Code",
+		subject: "Project Management Password Reset",
 		html: `
             <div>
             <table 
@@ -30,10 +30,9 @@ const AuthTemplate = (action) => {
                                             </div>
                                             <div style="padding: 20px; background-color: rgb(255, 255, 255);">
                                                 <div style="color: rgb(43, 21, 203); text-align: left;">
-                                                    <h1 style="margin: 1rem 0">Verification code</h1>
-                                                    <p style="padding-bottom: 16px">Please use the verification code below to sign
-                                                        in.</p>
-                                                    <p style="padding-bottom: 16px"><strong style="font-size: 130%">${otp}</strong>
+                                                    <h1 style="margin: 1rem 0">Hi ${user_name},</h1>
+                                                    <p style="padding-bottom: 16px">New Account is created in TSMC. Please use the link below to sign in.</p>
+                                                    <p style="padding-bottom: 16px"><strong style="font-size: 130%">http://domain.com/reset/${user_id}</strong>
                                                     </p>
                                                     <p style="padding-bottom: 16px">If you didn’t request this, you can ignore this
                                                         email.</p>
@@ -41,7 +40,7 @@ const AuthTemplate = (action) => {
                                                 </div>
                                             </div>
                                             <div style="padding-top: 20px; color: rgb(255, 250, 250); text-align: center;">
-                                                <p style="padding-bottom: 16px">Made with ♥ in Paris</p>
+                                                <p style="padding-bottom: 16px">Made with TSMC</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -56,4 +55,4 @@ const AuthTemplate = (action) => {
 	};
 };
 
-export { AuthTemplate };
+export { PasswordReset };

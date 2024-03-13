@@ -1,5 +1,5 @@
 import express from "express";
-import { router } from "./scheduler/Urls.js";
+import { router } from "./scheduler/urls.js";
 
 const app = express();
 app.use(express.json());

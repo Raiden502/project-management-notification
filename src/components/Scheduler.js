@@ -16,4 +16,11 @@ const taskMailStatusQueue = new Queue("taskStatusMail", {
 	},
 });
 
-export { sendOtpMailQueue, taskMailStatusQueue };
+const userQueue = new Queue("userQueue", {
+	redis: {
+		host: REDIS_HOST,
+		port: REDIS_PORT,
+	},
+});
+
+export { sendOtpMailQueue, taskMailStatusQueue , userQueue};
