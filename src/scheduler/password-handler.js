@@ -25,7 +25,7 @@ const UserPassword = async (req, res) => {
 	try {
 		const user_info = await queryDatabase(query);
 		if (user_info.length < 1) {
-			res.status(200).send({
+			return res.status(200).send({
 				status: false,
 				msg: "user not available",
 			});
@@ -34,13 +34,13 @@ const UserPassword = async (req, res) => {
 		data["type"] = "PASSWORD";
 		data["token"] = genToken(data);
 		await userQueue.add(data, options);
-		res.status(200).send({
+		return res.status(200).send({
 			status: true,
 			msg: "notification scheduled successfull",
 		});
 	} catch (error) {
 		console.error(error);
-		res.status(500).send({
+		return res.status(500).send({
 			status: false,
 			msg: "notification scheduled failed",
 		});
@@ -62,7 +62,7 @@ const NewOrganization = async (req, res) => {
 	try {
 		const user_info = await queryDatabase(query);
 		if (user_info.length < 1) {
-			res.status(200).send({
+			return res.status(200).send({
 				status: false,
 				msg: "user not available",
 			});
@@ -70,13 +70,13 @@ const NewOrganization = async (req, res) => {
 		const data = user_info[0];
 		data["type"] = "NEW_ORG";
 		await userQueue.add(data, options);
-		res.status(200).send({
+		return res.status(200).send({
 			status: true,
 			msg: "notification scheduled successfull",
 		});
 	} catch (error) {
 		console.error("error unable to insert");
-		res.status(500).send({
+		return res.status(500).send({
 			status: false,
 			msg: "notification scheduled failed",
 		});

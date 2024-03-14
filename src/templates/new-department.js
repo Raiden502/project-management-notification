@@ -1,7 +1,7 @@
 const NewDepartment = (action) => {
 	const { dept_name, user } = action;
 	return {
-		subject: "TSMC New Project",
+		subject: "TSMC New Department",
 		html: `
             <div>
             <table 
