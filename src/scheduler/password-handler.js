@@ -1,8 +1,14 @@
+import jwt from "jsonwebtoken";
 import { userQueue } from "../components/scheduler.js";
 import { sendMail } from "../components/node-mailer.js";
 import { queryDatabase } from "../db/queryDb.js";
 import { PasswordReset } from "../templates/password-reset.js";
 import { WelcomeUser } from "../templates/welcome-mail.js";
+
+const genToken = (data) => {
+	const secretKey = "your_secret_key";
+	return jwt.sign(data, secretKey, { expiresIn: "3h" });
+};
 
 const UserPassword = async (req, res) => {
 	const data = req.body;
@@ -26,13 +32,14 @@ const UserPassword = async (req, res) => {
 		}
 		const data = user_info[0];
 		data["type"] = "PASSWORD";
+		data["token"] = genToken(data);
 		await userQueue.add(data, options);
 		res.status(200).send({
 			status: true,
 			msg: "notification scheduled successfull",
 		});
 	} catch (error) {
-		console.error("error unable to insert");
+		console.error(error);
 		res.status(500).send({
 			status: false,
 			msg: "notification scheduled failed",
