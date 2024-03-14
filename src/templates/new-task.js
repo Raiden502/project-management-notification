@@ -1,7 +1,7 @@
 const NewTask = (action) => {
 	const { projectname, user, task, time, taskstatus, priority, reporter} = action;
 	return {
-		subject: "TSMC New Task",
+		subject: "TFMC New Task",
 		html: `
             <div>
             <table 
@@ -41,7 +41,7 @@ const NewTask = (action) => {
                                                 </div>
                                             </div>
                                             <div style="padding-top: 20px; color: rgb(255, 250, 250); text-align: center;">
-                                                <p style="padding-bottom: 16px">Made with TSMC</p>
+                                                <p style="padding-bottom: 16px">Made with TFMC</p>
                                             </div>
                                         </td>
                                     </tr>
