@@ -1,7 +1,7 @@
 const NewProject = (action) => {
 	const { projectname, user} = action;
 	return {
-		subject: "TFMC New Project",
+		subject: "TFMS New Project",
 		html: `
             <div>
             <table 
@@ -37,7 +37,7 @@ const NewProject = (action) => {
                                                 </div>
                                             </div>
                                             <div style="padding-top: 20px; color: rgb(255, 250, 250); text-align: center;">
-                                                <p style="padding-bottom: 16px">Made with TFMC</p>
+                                                <p style="padding-bottom: 16px">Made with TFMS</p>
                                             </div>
                                         </td>
                                     </tr>
