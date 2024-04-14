@@ -7,7 +7,7 @@ import { WelcomeUser } from "../templates/welcome-mail.js";
 
 const genToken = (data) => {
 	const secretKey = "your_secret_key";
-	return jwt.sign(data, secretKey, { expiresIn: "3h" });
+	return jwt.sign(data, secretKey, { expiresIn: "3m" });
 };
 
 const UserPassword = async (req, res) => {

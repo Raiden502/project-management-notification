@@ -53,7 +53,7 @@ const NewTaskScheduler = async (req, res) => {
 				t.name as task,
 				t.priority as priority,
 				r.user_name as reporter,
-				TO_CHAR(t.created_at, 'DD-MM-YYYY') as time
+				TO_CHAR(t.due_date, 'DD-MM-YYYY') as time
 			FROM tasks t
 			LEFT JOIN task_user_association tu ON tu.task_id = t.task_id
 			left join projects_info p on p.project_id = t.project_id

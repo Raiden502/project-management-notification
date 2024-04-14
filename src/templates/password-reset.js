@@ -31,7 +31,7 @@ const PasswordReset = (action) => {
                                             <div style="padding: 20px; background-color: rgb(255, 255, 255);">
                                                 <div style="color: rgb(43, 21, 203); text-align: left;">
                                                     <h1 style="margin: 1rem 0">Hi ${user_name},</h1>
-                                                    <p style="padding-bottom: 16px">New Account is created in TFMS. Please use the link below to sign in.</p>
+                                                    <p style="padding-bottom: 16px">New Account is created in TFMS. Please use the link below to sign in, Link will be active only for 3 minutes.</p>
                                                     <p style="padding-bottom: 16px"><strong style="font-size: 130%">http://${process.env.FRONT_END_HOST}/auth/verify/${token}</strong>
                                                     </p>
                                                     <p style="padding-bottom: 16px">If you didn’t request this, you can ignore this
