@@ -53,7 +53,7 @@ const NewTaskScheduler = async (req, res) => {
 				t.name as task,
 				t.priority as priority,
 				r.user_name as reporter,
-				TO_CHAR(t.created_at, 'DD-MM-YYYY') as time
+				TO_CHAR(t.due_date, 'DD-MM-YYYY') as time
 			FROM tasks t
 			LEFT JOIN task_user_association tu ON tu.task_id = t.task_id
 			left join projects_info p on p.project_id = t.project_id
@@ -104,8 +104,8 @@ const NewDepartmentScheduler = async (req, res) => {
 		text: `select d.name as dept_name, u.user_name as user , u.email_addrs from department_info d 
 				left join dept_user_associaton du on du.department_id = d.department_id
 				left join user_info u on u.user_id = du.user_id
-				where u.user_id = ANY($1::TEXT[])`,
-		values: [data.user_list],
+				where u.user_id = ANY($1::TEXT[]) and d.department_id = $2`,
+		values: [data.user_list, data.department_id],
 	};
 
 	const options = {
@@ -114,7 +114,7 @@ const NewDepartmentScheduler = async (req, res) => {
 
 	try {
 		const user_info = await queryDatabase(query);
-		
+
 		if (user_info.length < 1) {
 			return res.status(200).send({
 				status: false,
